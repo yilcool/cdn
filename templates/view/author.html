@@ -1,0 +1,344 @@
+{{define "view/author.html"}}
+<!DOCTYPE html>
+
+<head>
+  <meta name="robots" content="noindex, nofollow">
+  {{template "headerJS" .}}
+  <title>{{.user_nickname}}的个人主页 - 恐怖公社</title>
+  <meta name="keywords" content="灵异经历,灵异事件,神秘力量,细思密恐,灵异聚集地">
+  <meta name="description" content="灵异经历，灵异事件，神秘力量的聚集分享地">
+</head>
+
+<body>
+  {{template "header" .}}
+  <div class="container mt-2 mb-2">
+    <div class="artli_bread mt-1">
+      <span>您的位置</span><i class="fa fa-angle-right"></i>
+      <a href="/">首页</a><i class="fa fa-angle-right"></i>
+      <a href="javascript:void(0);">{{.user_nickname}}的个人主页</a>
+    </div>
+  </div>
+
+
+  <!-- <style>
+    .author_header {
+      background: #000 url("https://c-ssl.duitang.com/uploads/item/201301/03/20130103184318_uZXaR.thumb.700_0.jpeg") no-repeat;
+      background-size: 100%;
+
+      width: 100%;
+      min-height: 100px;
+      padding: 40px 15px 30px 15px;
+
+      border-top: 1px solid #000;
+    }
+
+    .author_view {
+      margin-top: 15px;
+      margin-bottom: 8px;
+      color: #FFF;
+      font-size: 15px;
+
+    }
+
+    .author_desc {
+      color: #FFF;
+      font-size: 15px;
+      margin-top: 8px;
+    }
+
+    .author_nick {
+      color: #FFF;
+      font-size: 20px;
+    }
+  </style> -->
+
+  <!-- <div class="container author_header text-center">
+
+    <img class="m-auto personal_avater rounded-circle img-thumbnail" style="width: 100px;" src="/static/image/8.png">
+
+    <div class="author_view">
+      <span class="author_nick mr-2">司空琪</span>
+      <span class="badge badge-pill badge-danger mr-2">Lv.6</span>
+      <span class="badge badge-pill badge-warning mr-2">优秀会员</span>
+    </div>
+    <div class="author_meta">
+      <span class="date">{{.user_creat}} 加入公社</span>
+    </div>
+    <div class="author_desc">江湖风雨，几度阑珊。沧海一粟，愿君一剑轻安。</div>
+
+
+    <style>
+      .follow {
+
+        margin-right: 20px;
+        background-color: #fa7d3c;
+        border: 1px solid #fa7d3c;
+
+        padding: 6px 20px;
+        background-color: #fafafa;
+        border-radius: 2px;
+        font-size: 15px;
+        border: 1px solid #2196F3;
+        background-color: #2196F3;
+
+        background-color: #fa7d3c;
+        border: 1px solid #fa7d3c;
+        color: #FFFFFF;
+        cursor: pointer;
+        display: inline-block;
+        box-shadow: 0px 2px 1px rgba(0, 0, 0, .2);
+      }
+    </style>
+
+
+    <span class="follow no opacity"><i class="lmlblog-icon"></i>+ 关注</span>
+
+
+  </div> -->
+
+
+  <div class="container mt-2">
+    <div class="row">
+
+
+      <!-- 左面的col-8页面 -->
+      <div class="col-md-8 col-12 pr-0 pl-0 ">
+
+
+
+        <style>
+          .post-topbar {
+            float: left;
+            width: 100%;
+            padding: 23px 20px;
+            background-color: #fff;
+            border-top: 4px solid #e44d3a;
+            border-left: 1px solid #e4e4e4;
+            border-bottom: 1px solid #e4e4e4;
+            border-right: 1px solid #e4e4e4;
+            /* -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.24);
+            -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.24);
+            -ms-box-shadow: 0 0 1px rgba(0, 0, 0, 0.24);
+            -o-box-shadow: 0 0 1px rgba(0, 0, 0, 0.24);
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0.24); */
+            margin-bottom: 20px;
+
+
+            float: left;
+            width: 100%;
+            background-color: #fff;
+            margin-bottom: 20px;
+            /* border-left: 1px solid #e5e5e5;
+            border-right: 1px solid #e5e5e5;
+            border-bottom: 1px solid #e5e5e5; */
+
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .05);
+          }
+
+          .user-picy {
+            float: left;
+            width: 50px;
+          }
+
+          .username-dt {
+            border-bottom: 4px solid #dc3545;
+            float: left;
+            width: 100%;
+            background-color: #212529;
+            padding-top: 35px;
+          }
+
+          .usr-pic {
+            width: 110px;
+            height: 110px;
+            margin: 0 auto;
+            margin-bottom: -55px;
+
+          }
+
+          .usr-pic img {
+            transition: all .5s;
+          }
+
+          .usr-pic img:hover {
+            transform: rotate(360deg);
+          }
+
+          .author_view {
+
+            background: #fff;
+
+            width: 100%;
+            padding: 140px 20px 20px 20px;
+            margin-bottom: 15px;
+          }
+
+          .author_desc {
+            margin-top: 16px;
+            color: #686868;
+            font-size: 14px;
+          }
+
+
+          .author_nick {
+            color: #000000;
+            font-size: 24px;
+            text-transform: capitalize;
+            font-weight: 600;
+            margin-bottom: 8px;
+          }
+
+          /* .author_box {
+            padding: 15px;
+          } */
+        </style>
+
+
+
+        <div class="author_box">
+          <div class="username-dt">
+            <div class="usr-pic">
+              <img class="rounded-circle img-thumbnail" src="{{.user_avater}}" alt="" width="100px">
+            </div>
+          </div>
+
+          <div class="author_view text-center">
+            <h3 class="author_nick text-center mt-2">{{.user_nickname}}</h3>
+            <div class="author_desc text-center" id="author_desc">{{.user_descripe}}</div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+        <!-- <div class="post-topbar">
+
+
+          <div class="user-picy">
+            <img src="/static/image/8.png" alt="">
+          </div>
+          <div class="post-st">
+            <ul>
+              <li><a class="post_project" href="#" title="">Post a Project</a></li>
+              <li><a class="post-jb active" href="#" title="">Post a Job</a></li>
+            </ul>
+          </div>
+        </div> -->
+
+
+
+
+
+        <!-- <div class="artli_box author_info align-items-center">
+          <div class="row m-0 align-items-center">
+
+            <div class="author_img align-items-center">
+              <img src="{{.user_avater}}" class="avatar avatar-96 current-author photo" height="96" width="96">
+            </div>
+
+            <div class="author_text col">
+              <span>{{.user_nickname}}</span>
+              <div class="author_meta">
+                <span class="date">{{.user_creat}} 加入公社</span>
+              </div>
+              <span class="mt-2">{{.user_descripe}}</span>
+            </div>
+
+          </div>
+        </div> -->
+
+
+        <div class="artli_new">
+          <!-- <p>文章</p> -->
+        </div>
+
+        <div class="artli_list">
+
+          <ul>
+            {{range .DataList}}
+            <li>
+              <div class="c1">
+                <div class="c2"></div>
+                <a href="/article?id={{.id}}" target="_blank" rel="bookmark">
+                  <h5>{{.title}}</h5>
+                </a>
+                <span class="c3">{{.content}}</span>
+                <div class="c4">
+                  <img src="{{.usr_av}}" height="16" width="16">
+                  <!-- {{if .userid }}
+            <a href="/author?id={{.userid}}" class="mr-3" target="_blank">{{.usr_nick}}</a>
+            {{else}}
+            <a href="javascript:void(0);" class="mr-3" target="_blank">{{.usr_nick}}</a>
+            {{end}} -->
+                  <a href="javascript:void(0);" class="mr-3" target="_blank">{{.usr_nick}}</a>
+                  <span class="mr-3">{{.time}}</span>
+                  <span class="mr-3 ml-auto"><i class="fa fa-eye"></i>&nbsp;{{.visit}}</span>
+                  <span><i class="fa fa-thumbs-up"></i>&nbsp;{{.zan}}</span>
+                  <!-- <span class="ml-auto d-md-block d-none">分类：<a href="/articlelist?id={{.listid}}">{{.list}}</a></span> -->
+                </div>
+              </div>
+            </li>
+            {{end}}
+          </ul>
+          <div class="ht-page pb-4 pt-3"></div>
+        </div>
+
+
+      </div>
+      <!-- 左面的col-8页面 -->
+      <div class="col-md-4 col-12">
+        <div class="row">
+          <!-- 这个是间隔 -->
+          <span class="mid_jiange d-md-block d-none"></span>
+          <!-- 这个是间隔 -->
+
+          <div class="col pl-0 pr-0">
+
+
+            <!-- 广告 -->
+            <!-- <div class="w-100 mb-2 ab_box">
+              <a>
+                <img class="w-100" id="ab_img" src="/static/image/ab/0.png">
+              </a>
+              <ul class="ab_ul mt-1">
+                <li class="col-3 current"></li>
+                <li class="col-3"></li>
+                <li class="col-3"></li>
+                <li class="col-3"></li>
+              </ul>
+            </div> -->
+
+            <!-- 右面最新评论 -->
+            <div class="box_right" id="comm_laster"></div>
+
+            <!-- 二维码 -->
+            <div class="box_right mt-2 mb-2">
+              <img class="col" src="https://s2.ax1x.com/2019/10/15/KP1mh8.jpg">
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <input type="hidden" id="author_data" data-userid="{{.user_id }}" data-getpage="{{.GetPage }}"
+    data-totalrecord="{{.TotalRecord }}" data-numpage="{{.NumPage }}" />
+
+  {{template "footer" .}}
+
+
+  <script>
+    function AsyncSuccess() {
+      AuthorJs.init();
+    }
+  </script>
+
+</body>
+
+</html>
+{{end}}

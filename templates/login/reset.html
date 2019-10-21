@@ -1,0 +1,65 @@
+{{define "admin/reset.html"}}
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="robots" content="noindex, nofollow">
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>重设密码 - 恐怖公社</title>
+
+	{{template "AdminHeaderJs" .}}
+	<script>
+
+		SetJs(domArr, $("#cryptojs").attr("src"), function () {
+			SetJs(domArr2, $("#loginjs").attr("src"))
+		})
+		// SetJs(domArr, function () {
+		// 	SetJs(domArr2)
+		// })
+	</script>
+</head>
+
+
+<body class="my-login-page">
+	<section class="h-100">
+		<div class="container h-100">
+			<div class="h-100">
+				<div class="card-wrapper">
+					<div class="brand">
+						<img src="https://s2.ax1x.com/2019/10/14/Kpn6ZF.jpg">
+						<!-- <img src="/static/image/login.jpg"> -->
+					</div>
+					<div class="card fat">
+						<div class="card-body">
+							<h4 class="card-title">重设密码</h4>
+							<form class="my-login-validation" id="reset_form" onsubmit="return ResetJs.checkForm();">
+								<div class="form-group">
+									<label for="password">新密码</label>
+									<div style="position:relative" id="eye-password-0">
+										<input id="password" type="password" class="form-control" name="password"
+											style="padding-right: 60px;">
+										<div class="invalid-feedback">密码不能为空</div>
+									</div>
+									<div class="invalid-feedback">密码不能为空</div>
+									<div class="form-text co5">确保您的密码牢固且易于记住</div>
+								</div>
+
+								<div class="form-group m-0">
+									<button type="submit" class="btn btn-danger btn-block">更改密码</button>
+								</div>
+								<input type="hidden" name="token" id="token" value="{{.token}}" />
+							</form>
+						</div>
+					</div>
+					<div class="footer">Copyright &copy; 2019 &mdash; 恐怖公社</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</body>
+
+</html>
+{{end}}

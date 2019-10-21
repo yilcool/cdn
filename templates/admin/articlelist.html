@@ -1,0 +1,114 @@
+{{define "admin/articlelist.html"}}
+
+<ol class="breadcrumb_view">
+    <li class="breadcrumb-item"><a href="/">主页</a></li>
+    <li class="breadcrumb-item"><a href="#">个人统计</a></li>
+    <li class="breadcrumb-item active">消息列表</li>
+</ol>
+
+<div class="card">
+    <div class="card-body">
+
+        <div class="row mb-2">
+            <div class="col-md-4 col-4 pr-1">
+                <select onchange="ArticleListJs.choose();" class="form-control" id="state_search">
+                    <option value="0">全部文章</option>
+                    <option value="1">已发布</option>
+                    <option value="2">待审核</option>
+                    <option value="3">审失败</option>
+                    <option value="4">草稿箱</option>
+                </select>
+
+            </div>
+            <div class="col-md-4 col-4 pl-1 pr-1">
+                <select onchange="ArticleListJs.choose();" name="list_search" class="form-control" id="list_search">
+                    <option value="0">全部栏目</option>
+                    {{range .ListMap}}
+                    <option value="{{.list_id}}">{{.list_title}}</option>
+                    {{end}}
+                </select>
+            </div>
+            <div class="col-md-4 col-4 pl-1">
+                <select onchange="ArticleListJs.choose();" name="date_search" class="form-control" id="date_search">
+                    <option value="0">全部日期</option>
+                    <option value="1">一天内</option>
+                    <option value="2">三天内</option>
+                    <option value="3">一周内</option>
+                    <option value="4">一月内</option>
+                    <option value="5">三月内</option>
+                </select>
+            </div>
+        </div>
+
+
+
+
+        <div class="datatb table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            <nobr>标题</nobr>
+                        </th>
+                        <th>
+                            <nobr>栏目</nobr>
+                        </th>
+                        <th>
+                            <nobr>日期</nobr>
+                        </th>
+                        <th>
+                            <nobr>操作</nobr>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="c1">
+                        <td colspan="100">没有找到匹配的记录</td>
+                    </tr>
+                    {{range .ArticleList}}
+                    <tr>
+                        <td>
+                            <a class="artlist_et" data-href="{{.id}}" href="javascript:void(0);">
+                                <strong>{{.title}}</strong>
+                            </a>
+                            <span>
+                                <strong>
+                                    <nobr> — {{.state}}</nobr>
+                                </strong>
+                            </span>
+                        </td>
+
+                        <td>
+                            {{.listname}}
+                        </td>
+                        <td>
+                            {{.time}}
+                        </td>
+                        <td>
+                            <nobr>
+                                <a class="artlist_et c2 mr-1" data-href="{{.id}}" href="javascript:void(0);">编辑</a>
+                                <a class="artlist_del c2 bco" class="msglist_del" data-href="{{.id}}"
+                                    href="javascript:void(0);">删除</a>
+                            </nobr>
+
+                        </td>
+                    </tr>
+                    {{end}}
+                </tbody>
+            </table>
+        </div>
+        <div class="ht-page"></div>
+    </div>
+
+</div>
+
+<input type="hidden" id="datalist" data-state="{{.GetState}}" data-list="{{.GetList}}" data-date="{{.GetDate}}"
+    data-getpage="{{.GetPage }}" data-totalrecord="{{.TotalRecord }}" data-numpage="{{.NumPage }}" />
+
+
+<script>
+    ArticleListJs.init();
+</script>
+
+
+{{end}}

@@ -1,0 +1,65 @@
+{{define "admin/fanslist.html"}}
+
+<ol class="breadcrumb_view">
+    <li class="breadcrumb-item"><a href="/">主页</a></li>
+    <li class="breadcrumb-item"><a href="#">数据操作</a></li>
+    <li class="breadcrumb-item active">粉丝列表</li>
+</ol>
+
+<div class="card">
+    <div class="card-body">
+        <div class="datatb table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            <nobr>你的粉丝用户</nobr>
+                        </th>
+                        <th>
+                            <nobr>在社时间</nobr>
+                        </th>
+                        <th>
+                            <nobr>操作</nobr>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="c1">
+                        <td colspan="5">没有找到匹配的记录</td>
+                    </tr>
+                    {{range .FansList}}
+                    <tr class="">
+                        <td>
+                            <a class="msglist_et" target="_blank" rel="noopener norefferrer" href="/author?id={{.id}}">
+                                <img src="{{.avater}}" class="mr-1" width="50" />
+                                <strong>{{.nickname}}</strong>
+                            </a>
+
+                        </td>
+                        <td>
+                            <nobr class="fanslist_usertime" data-val="{{.userTime}}"></nobr>
+                        </td>
+                        <td>
+                            <nobr><a class="c2" href="/author?id={{.id}}" target="_blank"
+                                    rel="noopener norefferrer">查看</a>
+                            </nobr>
+                        </td>
+                    </tr>
+                    {{end}}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="ht-page"></div>
+
+    </div>
+
+    <!-- <div class="ht-page pb-3 m-auto"></div> -->
+
+</div>
+<input type="hidden" id="datalist" data-getpage="{{.GetPage }}" data-totalrecord="{{.TotalRecord }}"
+    data-numpage="{{.NumPage }}" />
+<script>
+    FansListJs.init();
+</script>
+{{end}}

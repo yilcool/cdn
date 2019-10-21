@@ -1,0 +1,204 @@
+{{define "AdminHeaderJs"}}
+
+<link rel="stylesheet" id="bootstrapcss"
+  href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
+
+<style>
+  html,
+  body {
+    height: 100%;
+  }
+
+  body.my-login-page {
+    background-color: #f7f9fb;
+    font-size: 14px;
+  }
+
+  .my-login-page .brand {
+    width: 90px;
+    height: 90px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 40px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 1;
+  }
+
+  .my-login-page .brand img {
+    width: 100%;
+    transition: all 0.5s;
+  }
+
+  .my-login-page .brand img:hover {
+    transform: rotate(360deg);
+  }
+
+  .my-login-page .card-wrapper {
+    width: 400px;
+    margin: auto !important;
+  }
+
+  .my-login-page .card {
+    border-color: transparent;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .my-login-page .card.fat {
+    padding: 10px;
+  }
+
+  .my-login-page .card .card-title {
+    margin-bottom: 30px;
+  }
+
+  .my-login-page .form-control {
+    border-width: 2.3px;
+  }
+
+  .my-login-page .form-group label {
+    width: 100%;
+  }
+
+  .my-login-page .btn.btn-block {
+    padding: 12px 10px;
+  }
+
+  .my-login-page .footer {
+    margin: 40px 0;
+    color: #888;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 425px) {
+    .my-login-page .card-wrapper {
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+
+  @media screen and (max-width: 320px) {
+    .my-login-page .card.fat {
+      padding: 0;
+    }
+
+    .my-login-page .card.fat .card-body {
+      padding: 15px;
+    }
+  }
+
+  .my-login-page a {
+    color: #0073aa;
+    text-decoration: none !important;
+  }
+
+  .my-login-page .custom-control-input:checked~.custom-control-label::before {
+    color: #fff;
+    border-color: #34ce57;
+    background-color: #34ce57;
+  }
+</style>
+
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+  if (typeof jQuery == 'undefined') {
+    document.write('<script src="https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/dist/jquery.min.js"><\/script>');
+  } 
+</script>
+
+
+<script id="cryptojs" src="https://cdn.staticfile.org/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+<script id="jsjs" src="https://cdn.jsdelivr.net/gh/yilcool/cdn@1.0.7/kongbu/login.min.js"></script>
+
+
+<script>
+  // // 最新评论async
+  // function AsyncJs(arr, callback) {
+  //   var num = 0;
+  //   var arrSize = arr.length;
+  //   function async() {
+  //     //动态加载js，并且缓存
+  //     $.ajax({
+  //       url: arr[num],
+  //       dataType: "script",
+  //       async: true,
+  //       cache: true,
+  //       complete: function (XMLHttpRequest, textStatus) {
+  //         // console.log(arr[num] + num);
+  //         var status = XMLHttpRequest.status
+  //         if (status == 200 || status == 304) {
+  //           if (typeof callback === 'function') {//判断是否漏空，没传参数,不是传入方法就不回调
+  //             callback();
+  //           }
+  //           return
+  //         } else {
+  //           if (num >= arrSize - 1) {
+  //             if (typeof callback === 'function') {//判断是否漏空，没传参数,不是传入方法就不回调
+  //               callback();
+  //             }
+  //             return
+  //           }
+  //           num = num + 1;
+  //           async()
+  //         }
+  //       },
+  //     })
+  //   }
+  //   async();
+  // }
+
+  // function CheckCDN(weburl, callback) {
+  //   //第一个js先检测是否能加载，能加载代表网页的script加载的js无问题，不能加载再用方法循环加载
+  //   $.ajax({
+  //     url: weburl,
+  //     dataType: "text",
+  //     async: true,
+  //     cache: true,
+  //     complete: function (XMLHttpRequest, textStatus) {
+  //       var status = XMLHttpRequest.status
+  //       if (status == 200 || status == 304) {
+  //         callback(true)
+  //       } else {
+  //         callback(false)
+  //       }
+  //       return;
+  //     }
+  //   })
+  // }
+
+  // function SetJs(arr, weburl, callback) {
+
+  //   CheckCDN(weburl, function (bool) {
+  //     // alert(bool);
+  //     // 要是回调检测cdn失效就轮训数组加载js
+  //     if (bool == false) {
+  //       AsyncJs(arr, callback);
+  //       return;
+  //     }
+  //     // 要是没有失效判断传入是否函数，是函数就回调
+  //     if (typeof callback === 'function') {
+  //       callback();
+  //     }
+
+  //   });
+  // }
+
+
+
+  // var domArr = [
+  //   "https://cdn.bootcss.com/crypto-js/3.1.9-1/crypto-js.min.js",
+  //   "https://cdn.jsdelivr.net/npm/crypto-js@3.1.9-1/crypto-js.min.js",
+  //   "https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"]
+
+  // var domArr2 = [
+  //   "/static/styles/login.min.js",
+  //   "https://yilcool.github.io/cdn/kongbu/login.min.js",
+  // ]
+  function AsyncJs(t, o) { var i = 0, a = t.length; !function s() { $.ajax({ url: t[i], dataType: "script", async: !0, cache: !0, complete: function (t, c) { var n = t.status; 200 != n && 304 != n ? a - 1 <= i ? "function" == typeof o && o() : (i += 1, s()) : "function" == typeof o && o() } }) }() } function CheckCDN(t, s) { $.ajax({ url: t, dataType: "text", async: !0, cache: !0, complete: function (t, c) { var n = t.status; s(200 == n || 304 == n) } }) } function SetJs(c, t, n) { CheckCDN(t, function (t) { 0 != t ? "function" == typeof n && n() : AsyncJs(c, n) }) } var domArr = ["https://cdn.bootcss.com/crypto-js/3.1.9-1/crypto-js.min.js", "https://cdn.jsdelivr.net/npm/crypto-js@3.1.9-1/crypto-js.min.js", "https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"], domArr2 = ["/static/styles/login.min.js", "https://yilcool.github.io/cdn/kongbu/login.min.js"];
+
+</script>
+
+
+
+{{end}}

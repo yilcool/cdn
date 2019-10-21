@@ -1,0 +1,117 @@
+{{define "view/commlist.html"}}
+<!DOCTYPE html>
+
+<head>
+  <meta name="robots" content="noindex, nofollow">
+  {{template "headerJS" .}}
+  <title>最新评论列表 - 恐怖公社</title>
+  <meta name="keywords" content="灵异经历,灵异事件,神秘力量,细思密恐,灵异聚集地">
+  <meta name="description" content="灵异经历，灵异事件，神秘力量的聚集分享地">
+</head>
+
+<body>
+  {{template "header" .}}
+
+  <div class="container mt-2 mb-2">
+    <div class="artli_bread mt-1">
+      <span>您的位置</span><i class="fa fa-angle-right"></i>
+      <a href="/">首页</a><i class="fa fa-angle-right"></i>
+      <a href="javascript:void(0);">最新评论列表</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <!-- 左面的col-8页面 -->
+      <div class="col-md-8 col-12 pr-0 pl-0 ">
+
+        <div class="comli_box">
+          <div class="d-flex">
+            <!-- <img class="d-none d-md-block" src="/static/image/konbu.jpg"> -->
+            <span class="comli_quote d-md-none"></span>
+            <div class="m-auto">
+              <h4 class="text-center co2"><i class="fa fa-bible mr-1"></i>最新评论</h4>
+              <p>写评论不一定要字数多，主要是要写出自己的真情实感，写出自己想表达什么，畅所欲言，当然要言之有理，当你的评论让你畅所欲言，让你一语中的时，就显得掷地有声。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="commli_line">
+          <!-- <p>【最新评论】</p> -->
+        </div>
+
+        <!-- <div class="box_right mt-2" id="comm_laster"></div> -->
+
+        <div class="comli_widget">
+          <ul>
+            {{range .CommList}}
+            <li>
+              <div class="row ml-0 mr-0">
+                <div class="message-avatar">
+                  <img src="{{.avater}}" class="avatar avatar-48 photo" height="60" width="60">
+                </div>
+                <div class="col comli_pl">
+                  <span>
+                    {{if .userid }}
+                    <a href="/author?id={{.userid}}">{{.nickname}}</a>
+                    {{else}}
+                    <a href="javascript:void(0);">{{.nickname}}</a>
+                    {{end}}
+                  </span>在《<a href="/article?id={{.article_id}}">{{.article_title}}</a>》中说：<a
+                    href="/article?id={{.article_id}}">{{.content}}</a>
+                </div>
+
+              </div>
+            </li>
+            {{end}}
+          </ul>
+
+          <div class="ht-page pb-4 pt-3"></div>
+        </div>
+
+
+
+      </div>
+      <!-- 左面的col-8页面 -->
+      <div class="col-md-4 col-12 view_r">
+
+        <!-- 广告 -->
+        <div class="ab_box">
+          <a>
+            <img class="w-100" id="ab_img" src="/static/image/ab/0.png">
+          </a>
+          <ul class="ab_ul">
+            <li class="col-3 current"></li>
+            <li class="col-3"></li>
+            <li class="col-3"></li>
+            <li class="col-3"></li>
+          </ul>
+        </div>
+
+        <!-- 右面最新评论 -->
+        <!-- <div class="box_right mt-2" id="comm_laster"></div> -->
+
+        <!-- 二维码 -->
+        <div class="box_right mt-2 mb-2">
+          <img class="col" src="https://s2.ax1x.com/2019/10/15/KP1mh8.jpg">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <input type="hidden" id="commlist_data" data-getpage="{{.GetPage }}" data-totalrecord="{{.TotalRecord }}"
+    data-numpage="{{.NumPage }}" />
+
+  {{template "footer" .}}
+
+  <script>
+    function AsyncSuccess() {
+      CommListJs.ad();
+      CommListJs.init();
+    }
+  </script>
+</body>
+
+</html>
+{{end}}

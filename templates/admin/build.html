@@ -1,0 +1,16 @@
+{{define "admin/build.html"}}
+<!-- <h1>数据改变</h1> -->
+<ol class="breadcrumb bg-white w-100  rounded-0 shadowbox">
+  <li class="breadcrumb-item"><a href="/">主页</a></li>
+  <li class="breadcrumb-item"><a href="#">超级管理员</a></li>
+  <li class="breadcrumb-item active">生成数据</li>
+</ol>
+<!-- </div> -->
+<!-- <button type="button" data-tag="index" class="ck btn btn-primary col-12 mt-3">生成首页</button>
+  <button type="button" data-tag="newcomment" class="ck btn btn-primary col-12 mt-3">生成全站最新评论</button> -->
+<button type="button" data-val="allbuild" class="ck btn btn-success col-12 col-md-4 mt-3">生成全站静态</button>
+<button type="button" data-val="sitemap" class="ck btn btn-primary col-12 col-md-4 mt-3">sitemap</button>
+<script>
+  BuildJs.init();
+</script>
+{{end}}

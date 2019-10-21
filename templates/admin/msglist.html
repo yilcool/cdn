@@ -1,0 +1,83 @@
+{{define "admin/msglist.html"}}
+
+<ol class="breadcrumb_view">
+    <li class="breadcrumb-item"><a href="/">主页</a></li>
+    <li class="breadcrumb-item"><a href="#">个人统计</a></li>
+    <li class="breadcrumb-item active">消息列表</li>
+</ol>
+
+<div class="card">
+    <div class="card-body">
+        
+        <div class="row mb-2">
+            <div class="col-12">
+                <select onchange="MsgListJs.choose();" class="form-control" id="msg_status">
+                    <option value="0">未读消息</option>
+                    <option value="1">已读消息</option>
+                    <option value="2">全部消息</option>
+                    <!-- <option value="3">站消息</option> -->
+                </select>
+            </div>
+        </div>
+
+
+        <div class="datatb table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            <nobr>消息内容</nobr>
+                        </th>
+                        <th>
+                            <nobr>时间</nobr>
+                        </th>
+                        <th>
+                            <nobr>操作</nobr>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="c1">
+                        <td colspan="100">没有找到匹配的记录</td>
+                    </tr>
+                    {{range .MsgList}}
+                    <tr>
+                        <td>
+                            <!-- data-id="{{.id}}" data-status="{{.status}}" id是判断消息发送已经读取状态，status判断是否已经读取过，读取过点击就不发给服务器 -->
+                            <a class="msglist_et" data-id="{{.id}}" data-status="{{.status}}" data-link="{{.link}}"
+                                href="javascript:void(0);">
+                                <strong>{{.content}}</strong>
+                            </a>
+                            <nobr> — <div class="msglist_status badge badge-pill" data-val="{{.status}}">
+                                </div>
+                            </nobr>
+                        </td>
+                        <td>{{.time}}</td>
+                        <td>
+                            <nobr>
+                                <a class="msglist_et c2 mr-1" data-id="{{.id}}" data-status="{{.status}}"
+                                    data-link="{{.link}}" href="javascript:void(0);">查看</a>
+                                <a class="msglist_del c2 bco" class="msglist_del" data-val="{{.id}}"
+                                    href="javascript:void(0);">删除</a>
+                            </nobr>
+                        </td>
+                    </tr>
+                    {{end}}
+                </tbody>
+            </table>
+        </div>
+        <div class="ht-page"></div>
+    </div>
+
+
+</div>
+
+<input type="hidden" id="datalist" data-status="{{.GetStatus}}" data-getpage="{{.GetPage }}"
+    data-totalrecord="{{.TotalRecord }}" data-numpage="{{.NumPage }}" />
+
+<script>
+    MsgListJs.init();
+</script>
+
+
+{{end}}

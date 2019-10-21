@@ -1,0 +1,82 @@
+{{define "admin/webmsglist.html"}}
+
+<ol class="breadcrumb_view">
+    <li class="breadcrumb-item"><a href="/">主页</a></li>
+    <li class="breadcrumb-item"><a href="#">个人统计</a></li>
+    <li class="breadcrumb-item active">全站消息</li>
+</ol>
+
+<div class="card">
+    <div class="card-body">
+
+        <div class="row mb-2">
+            <div class="col-12">
+                <select onchange="WebMsgListJs.choose();" class="form-control" id="msg_status">
+                    <option value="0">今天消息</option>
+                    <option value="1">30天消息</option>
+                    <option value="2">全部消息</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="datatb table-responsive">
+            <table class="datalist_tb table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            <nobr>全站消息</nobr>
+                        </th>
+                        <th>
+                            <nobr>日期</nobr>
+                        </th>
+                        <th>
+                            <nobr>操作</nobr>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="c1">
+                        <td colspan="100">没有找到匹配的记录</td>
+                    </tr>
+                    {{range .MsgList}}
+                    <tr>
+                        <td>
+                            <a class="msglist_et" href="{{.link}}" target="_blank" rel="noopener norefferrer">
+                                <strong>{{.nickname}} {{.content}}</strong>
+                            </a>
+                        </td>
+                        <td>
+                            <nobr>{{.time}}</nobr>
+                            <nobr> {{.time2}}</nobr>
+
+                        </td>
+                        <td>
+                            <nobr>
+                                <a class="msglist_et c2 mr-1" target="_blank" rel="noopener norefferrer"
+                                    href="{{.link}}">查看</a>
+                            </nobr>
+                        </td>
+                    </tr>
+                    {{end}}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="ht-page"></div>
+
+    </div>
+
+    <!-- <div class="ht-page pb-3 m-auto"></div> -->
+
+</div>
+
+<input type="hidden" id="datalist" data-status="{{.GetStatus}}" data-getpage="{{.GetPage }}"
+    data-totalrecord="{{.TotalRecord }}" data-numpage="{{.NumPage }}" />
+
+
+<script>
+    WebMsgListJs.init();
+</script>
+
+
+{{end}}

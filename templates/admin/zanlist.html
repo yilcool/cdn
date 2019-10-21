@@ -1,0 +1,65 @@
+{{define "admin/zanlist.html"}}
+
+<ol class="breadcrumb_view">
+    <li class="breadcrumb-item"><a href="/">主页</a></li>
+    <li class="breadcrumb-item"><a href="#">个人统计</a></li>
+    <li class="breadcrumb-item active">获赞列表</li>
+</ol>
+
+<div class="card">
+    <div class="card-body">
+
+        <div class="datatb table-responsive">
+            <table class="datalist_tb table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            <nobr>获赞文章</nobr>
+                        </th>
+                        <th>
+                            <nobr>点赞数</nobr>
+                        </th>
+                        <th>
+                            <nobr>操作</nobr>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="c1">
+                        <td colspan="100">没有找到匹配的记录</td>
+                    </tr>
+                    {{range .ZanList}}
+                    <tr>
+                        <td>
+                            <a target="_blank" rel="noopener norefferrer" href="/article?id={{.id}}">
+                                <strong>{{.title}}</strong>
+                            </a>
+                        </td>
+                        <td>
+                            <nobr>{{.zan}}</nobr>
+                        </td>
+                        <td>
+                            <nobr><a class="c2" data-id="{{.id}}" href="/article?id={{.id}}" target="_blank"
+                                    rel="noopener norefferrer">查看</a></nobr>
+                        </td>
+                    </tr>
+                    {{end}}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="ht-page"></div>
+
+    </div>
+
+    <!-- <div class="ht-page pb-3 m-auto"></div> -->
+
+</div>
+
+<input type="hidden" id="datalist" data-getpage="{{.GetPage }}" data-totalrecord="{{.TotalRecord }}"
+    data-numpage="{{.NumPage }}" />
+<script>
+    ZanListJs.init();
+</script>
+
+{{end}}

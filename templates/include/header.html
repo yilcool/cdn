@@ -1,0 +1,218 @@
+{{define "header"}}
+
+<div class="header_top d-md-block d-none">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <a href="javascript:void(0);" data-toggle="tooltip" data-original-title="关注公众：全球恐怖精选视频"><i
+            class="fa fa-comments"></i>公众号</a>
+        <a href="javascript:void(0);" data-toggle="tooltip" data-original-title="投稿审核有问题请联系邮箱admin@kongbu666.com"><i
+            class="fa fa-envelope-open"></i>联系邮箱</a>
+        <a href="/sitemap.xml" target="_blank" rel="noopener norefferrer nofollow"><i
+            class="fa fa-map-marker-alt"></i>网站地图</a>
+      </div>
+      <div id="header_login">
+        <a href="/user/login.html"><i class="fa fa-meteor"></i>登录</a>
+        <a href="/user/signup.html" target="_blank" rel="noopener norefferrer nofollow"><i class="fa fa-at"></i>注册</a>
+      </div>
+      <div id="header_sigupin" style="display: none;">
+        <a href="/user/login.html" target="_blank" rel="noopener norefferrer nofollow"><i
+            class="fa fa-user"></i>个人中心</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="header_logo d-md-block d-none" id="shan" id="shan">
+  <div class="container">
+    <div class="row">
+      <a href="/index.html" class="m-auto">
+        <img src="https://s2.ax1x.com/2019/10/14/KpZlvT.png" height="120">
+        <!-- <img src="/static/image/logo.png" height="120"> -->
+      </a>
+    </div>
+  </div>
+</div>
+
+<div id="shan2" class="nav_bg">
+  <nav class="navbar navbar-expand-md navbar-dark container pb-0">
+    <!-- 按钮边框方框里面三条线 -->
+    <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <a class="navbar-brand d-md-none d-lg-none" href="/">
+      <img class="nav_logopic" src="https://s2.ax1x.com/2019/10/14/KpKIED.png" alt="恐怖公社">
+      <!-- <img class="nav_logopic" src="/static/image/mlogo.png" alt="恐怖公社"> -->
+    </a>
+
+    <span class="d-md-none d-lg-none">
+      <a href="/user/login.html" rel="nofollow" style="font-size: 25px;color:#aaaaaa;">
+        <i class="fa fa-user-cog"></i>
+      </a>
+      <!-- fa-search -->
+    </span>
+
+
+
+    <div class="collapse navbar-collapse " id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <!-- 自动拉伸 -->
+        <!-- <style>
+            @media (min-width: 768px) {
+              .l-nav {
+                border-top-left-radius: 6px;
+              }
+  
+              .dropdown:hover>.dropdown-menu {
+                /* display: block; */
+                display: none;
+              }
+  
+              .dropdown>:active {
+                pointer-events: none;
+              }
+            }
+          </style> -->
+
+        <li class="nav-item">
+          <a href="/" class="nav-link nav_select nav_left_radius">网站首页</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link nav_a" href="/articlelist?id=1" id="layoutDd" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false"><i class="fa fa-ghost mr-1"></i>灵异事件</a>
+          <div class="dropdown-menu" aria-labelledby="layoutDd"><a href="/articlelist?id=2" class="dropdown-item px-2"
+              href="/"><i class="fa fa-cat mr-1"></i>灵异经历</a>
+            <div class="dropdown-divider"></div><a href="/articlelist?id=3" class="dropdown-item px-2"
+              href="/ndk.html"><i class="fa fa-seedling mr-1"></i>灵异求助</a>
+            <div class="dropdown-divider"></div><a href="/articlelist?id=4" class="dropdown-item px-2"
+              href="/ndk.html"><i class="fa fa-skull-crossbones mr-1"></i>细思极恐</a>
+          </div>
+        </li>
+
+        <!-- <li class="nav-item">
+          <a href="/articlelist?id=6" class="nav-link nav_a">
+            <i class="fa fa-book-dead mr-1"></i>灵异故事</a>
+        </li> -->
+
+
+        <li class="nav-item dropdown">
+          <a class="nav-link nav_a" href="#" id="layoutDd" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false"><i class="fa fa-book-dead mr-1"></i>灵异故事</a>
+          <div class="dropdown-menu" aria-labelledby="layoutDd"><a class="dropdown-item px-2"
+              href="/articlelist?id=6"><i class="fa fa-glasses mr-1"></i>原创故事</a>
+            <div class="dropdown-divider"></div><a class="dropdown-item px-2" href="/articlelist?id=7"><i
+                class="fa fa-atlas mr-1"></i>网络鬼故</a>
+          </div>
+        </li>
+
+
+        <li class="nav-item dropdown">
+          <a class="nav-link nav_a" href="#" id="layoutDd" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false"><i class="fa fa-yin-yang mr-1"></i>民间秘术</a>
+          <div class="dropdown-menu" aria-labelledby="layoutDd"><a class="dropdown-item px-2"
+              href="/articlelist?id=9"><i class="fa fa-cross mr-1"></i>辟邪知识</a>
+            <div class="dropdown-divider"></div><a class="dropdown-item px-2" href="/articlelist?id=10"><i
+                class="fa fa-donate mr-1"></i>招财转运</a>
+            <div class="dropdown-divider"></div><a class="dropdown-item px-2" href="/articlelist?id=11"><i
+                class="fa fa-skull mr-1"></i>咒语法术</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link nav_a" href="#" id="layoutDd" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false"><i class="fa fa-theater-masks mr-1"></i>灵异奇谈</a>
+          <div class="dropdown-menu" aria-labelledby="layoutDd">
+            <a class="dropdown-item px-2" href="/articlelist?id=13"><i class="fa fa-pray mr-1"></i>民间怪谈</a>
+            <div class="dropdown-divider"></div><a class="dropdown-item px-2" href="/articlelist?id=14"><i
+                class="fa fa-star-of-david mr-1"></i>都市传说</a>
+            <div class="dropdown-divider"></div><a class="dropdown-item px-2" href="/articlelist?id=15"><i
+                class="fa fa-hamsa mr-1"></i>未解之谜</a>
+          </div>
+        </li>
+
+        <!-- 手机屏幕的宽度隐藏 -->
+        <li class="nav-item dropdown  d-md-block d-none">
+          <a class="nav-link nav_a nav_right_radius" href="#" id="layoutDd" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false"><i class="fa fa-users mr-1"></i>会员专区</a>
+          <div class="dropdown-menu" aria-labelledby="layoutDd"><a class="dropdown-item px-2" href="/votelist"><i
+                class="fa fa-hands-helping mr-1"></i>投票审文</a>
+          </div>
+        </li>
+
+        <!-- 手机屏幕的宽度显示 -->
+        <li class="nav-item d-md-none">
+          <a href="/votelist" rel="nofollow" class="nav-link nav_a">
+            <i class="fa fa-users mr-1"></i>投票审文</a>
+        </li>
+
+        <!-- 手机屏幕的宽度显示 -->
+        <li id="ss" class="nav-item d-md-none">
+          <a href="/user/publish.html" rel="nofollow" class="nav-link nav_a">
+            <i class="fa fa-feather-alt mr-1"></i>我要投稿</a>
+        </li>
+
+
+      </ul>
+    </div>
+
+    <div class="float-right nav_tougao d-md-block d-none">
+      <a href="#"><i class="fa fa-feather-alt"></i></a>
+    </div>
+
+    <div class="float-right nav_tougao d-md-block d-none">
+      <a href="/user/publish.html">我要投稿</a>
+    </div>
+
+  </nav>
+
+</div>
+
+
+
+
+<div class="dd_box container">
+
+  <ul class="row">
+
+    <li class="dd_item d-none d-lg-block">
+      <a href="/">网站首页</a>
+    </li>
+
+    <li class="dd_item">
+      <a href="/articlelist?id=2"><i class="fa fa-cat mr-1"></i>灵异经历</a>
+      <a href="/articlelist?id=3"><i class="fa fa-seedling mr-1"></i>灵异求助</a>
+      <a href="/articlelist?id=4"><i class="fa fa-skull-crossbones mr-1"></i>细思极恐</a>
+    </li>
+
+    <li class="dd_item">
+      <a href="/articlelist?id=6"><i class="fa fa-glasses mr-1"></i>原创故事</a>
+      <a href="/articlelist?id=7"><i class="fa fa-atlas mr-1"></i>网络鬼故</a>
+    </li>
+
+
+    <li class="dd_item">
+      <a href="/articlelist?id=9"><i class="fa fa-cross mr-1"></i>辟邪知识</a>
+      <a href="/articlelist?id=10"><i class="fa fa-donate mr-1"></i>招财转运</a>
+      <a href="/articlelist?id=11"><i class="fa fa-skull mr-1"></i>咒语法术</a>
+    </li>
+
+    <li class="dd_item">
+      <a href="/articlelist?id=13"><i class="fa fa-pray mr-1"></i>民间怪谈</a>
+      <a href="/articlelist?id=14"><i class="fa fa-star-of-david mr-1"></i>都市传说</a>
+      <a href="/articlelist?id=15"><i class="fa fa-hamsa mr-1"></i>未解之谜</a>
+    </li>
+
+    <li class="dd_item">
+      <a class="co2" href="/votelist"><i class="fa fa-hands-helping mr-1"></i>投票审文</a>
+    </li>
+
+
+    <!-- <li class="dd_item col">
+        <a href="/vote/votelist"><i class="fa fa-hands-helping mr-1"></i>投票审文</a>
+      </li> -->
+
+  </ul>
+</div>
+{{end}}

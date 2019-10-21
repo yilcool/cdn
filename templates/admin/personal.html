@@ -1,0 +1,72 @@
+{{define "admin/personal.html"}}
+
+
+<div class="personal_box">
+
+    <div class="m-box">
+        <div class="box-head">
+            <strong class="box-title">&nbsp;个人设置</strong>
+        </div>
+    </div>
+
+
+    <form onsubmit="return PersonalJs.checkForm();" id="form" class="mt-4">
+        <div class="d-flex">
+            <div class="personal_left">
+
+                <div class="form-group d-flex  flex-column">
+                    <img class="personal_avater d-sm-none img-thumbnail m-auto rounded-circle "
+                        style="width: 100px;height: 100px!important;" src="/static/image/default.jpg">
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label">用户昵称</label>
+                    <input class="form-control" placeholder="用户昵称" type="text" name="nickname" id="nickname">
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">登录用户</label>
+                    <input class="form-control" name="username" id="username" placeholder="请填入文章标题" disabled="disabled"
+                        type="text">
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label">电子邮件</label>
+                    <input class="form-control" disabled="disabled" name="email" id="email" placeholder="请填入文章标题"
+                        type="text">
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label">个人说明</label>
+                    <textarea class="form-control pb-5" id="desc" name="desc" placeholder="请输入文字"></textarea>
+                </div>
+
+                <button type="submit" class="fabu btn btn-success d-flex flex-row mt-4">保存修改</button>
+            </div>
+
+            <div class=" personal_av_img d-none d-sm-block text-center">
+                <img class="personal_avater d-none d-sm-block rounded-circle img-thumbnail" style="width: 130px;"
+                    src="/static/image/default.jpg">
+                <a href="javascript:;" class="personal_upload">
+                    <input type="file" name="file" id="file">修改头像
+                </a>
+            </div>
+        </div>
+
+        <input type="hidden" name="av" id="av">
+    </form>
+</div>
+
+<script>
+    PersonalJs.init();
+    PersonalJs.imgUp();
+</script>
+
+
+</div>
+
+
+{{end}}
